@@ -57,9 +57,6 @@
       </div>
     </div>
     <script>
-      var currentScene;
-      var currentLine;
-
       (function() {
         ajaxCall();
       })();
@@ -73,34 +70,17 @@
       })
 
       function ajaxCall() {
-        getOpeningScene(openingScenes);
-        getOpeningLine(openingLines);
-      }
-
-      function getOpeningScene(openingScenes) {
-        var randomNumber = generateRandomNumber(openingScenes.length);
         var randomColor = generateRandomColor();
-
-        $('.sub-container').css('background-color', 'white')
-        $('body').css('background-color', randomColor)
-
-        $('.quote').text(' ' + openingScenes[randomNumber]).css('color', randomColor)
-        $('.btn').css('background-color', randomColor).css('color', 'white')
-
-        currentScene = openingScenes[randomNumber];
-      }
-
-      function getOpeningLine(openingLines) {
-        var randomNumber = generateRandomNumber(openingLines.length);
-        var randomColor = generateRandomColor();
-
-        $('.sub-container').css('background-color', 'white')
-        $('body').css('background-color', randomColor)
-
-        $('.line').text(' ' + openingLines[randomNumber]).css('color', randomColor)
-        $('.btn').css('background-color', randomColor).css('color', 'white')
-
-        currentLine = openingLines[randomNumber];
+        var currentSceneNumber = generateRandomNumber(openingScenes.length);
+        var currentLineNumber = generateRandomNumber(openingLines.length);
+        
+        $('.sub-container').css('background-color', 'white');
+        $('body').css('background-color', randomColor);
+        
+        $('.quote').text('Scene: ' + currentSceneNumber).css('color', randomColor);
+        $('.line').text('Opening Line: ' + currentLineNumber).css('color', randomColor);
+        
+        $('.btn').css('background-color', randomColor).css('color', 'white');
       }
 
       function generateRandomNumber(length) {
